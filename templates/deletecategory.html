@@ -1,0 +1,25 @@
+<!-- extender o arquivo main.html -->
+{% extends "main.html" %}
+
+<!-- importa o header -->
+{% include "header.html" %}
+
+<!-- criar um bloco de conteudo -->
+{% block content %}
+
+<div class="jumbotron">
+	<div class="h1"> Delete category {{category.category}} </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2> Are you sure? </h2><br/>
+			<form method="POST" action="{{url_for('deleteCategory', category_id = category.id)}}">
+				<input type="submit" value="Delete" class="btn"> 
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock%}

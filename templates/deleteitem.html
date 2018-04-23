@@ -1,0 +1,43 @@
+<!-- extender o arquivo main.html -->
+{% extends "main.html" %}
+
+<!-- importa o header -->
+{% include "header.html" %}
+
+<!-- criar um bloco de conteudo -->
+{% block content %}
+
+<!-- cover here -->
+<div class="container-fluid ">
+	<div class="jumbotron center urlimg">
+	</div>
+</div>
+<style> 
+	.urlimg {
+		opacity: .7;
+		background-image: url({{category.img_url}}) !important;
+		background-size: cover !important;
+		background-size: 100%;
+	}
+</style>
+
+<!-- delete form here -->
+<div class="container">
+	<div class="row category">
+		<div class="col-md-12 center">
+			<h1> You really want delete {{item.name}}?</h1>
+		</div>
+		<div class="col-md-12 form">
+			<form method="POST" action="{{url_for('deleteItem', category_id=category.id, item_id=item.id)}}">
+				<div class="form-group">
+				    <div class="center">
+					 <button type="submit" class="btn center">Yes, i'm sure</button>&nbsp;
+					 <a href="{{url_for('items', category_id=category.id)}}" class="btn active center" role="button" aria-pressed="true">No, I guess</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock%}

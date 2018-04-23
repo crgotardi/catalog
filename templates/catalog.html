@@ -1,0 +1,66 @@
+<!-- extender o arquivo main.html -->
+{% extends "main.html" %}
+
+<!-- importa o header -->
+{% include "header.html" %}
+
+<!-- criar um bloco de conteudo -->
+{% block content %}
+
+<!-- cover here -->
+	<div class="container-fluid">
+		<div class="jumbotron center urlimg">
+		</div>
+		<style> 
+			.urlimg {
+			opacity: .7;
+			background-image: url('http://www.tokkoro.com/picsup/2849126-video-games-controllers-simple-background-playstation-xbox-nintendo-entertainment-system-minimalism-dreamcast-snes-n64-gamecube___game-wallpapers.jpg') !important;
+			background-size: cover;
+			background-position-y: 8%;
+		}
+		</style>
+		
+	</div>
+	<div class="row">
+		<!-- Category list here -->
+		<div class="col-md-9 center category">
+			<h2> Category</h2>
+				<div class="row align-items-center">
+					{% if catalog %}
+						{% for i in catalog %}
+							<div class="col-md-4 center align-self-center align-middle">
+								<div class="category-item">
+									<a href="{{url_for('items', category_id=i.id)}}">
+										<h3>{{ i.category }}</h3>
+									</a> 
+								</div>
+							</div>
+						{% endfor %}
+					<div class="col-md-4 center align-self-center align-middle">
+					</div>
+					{% else %}
+						<div class="col-md-4 center align-self-center align-middle">
+							<p> Nothing to list </p>
+						</div>
+					{% endif %}
+				</div>
+			</div>	
+		<!-- last games here here -->
+		<div class="col-md-3 center latest-items category dark">
+			<h2> Lastest Games </h2>
+			<div class="row align-items-center">
+				{% for i in last %}
+					<div class="col-md-12">
+						<a href="#" class="category-list"><p>{{ i.name }}
+							{% for c in catalog %}
+								{% if c.id == i.catalog_id %}
+									({{ c.category }})
+								{% endif %}
+							{% endfor %}</p>
+						</a>
+					</div>
+				{% endfor %}
+			</div>			
+		</div>
+	</div>
+{% endblock%}

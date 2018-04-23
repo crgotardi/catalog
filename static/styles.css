@@ -1,0 +1,160 @@
+/* General styles */
+body {
+	background-color: #232b38;
+	font-family: 'Ubuntu', sans-serif;
+	margin: 0 auto;
+}
+
+h1,h2,h3 {
+	color: #BCDDFE;
+}
+
+h4 {
+	font-size: 1.0em;
+}
+
+p {
+	color: #fff;
+}
+
+a {
+	color: #eee;
+	font-weight: 600;
+}
+
+a:hover {
+	color: #BCDDFE;
+	text-decoration: none;
+}
+
+/* class for center text */
+.center {
+	text-align: center;
+}
+
+/* Navbar style */
+.navbar-expand-lg {
+	background-color: #253237;
+	color: #E0FBFC !important;
+	-webkit-box-shadow: 0px 10px 9px -3px rgba(0,0,0,0.27);
+	-moz-box-shadow: 0px 10px 9px -3px rgba(0,0,0,0.27);
+	box-shadow: 0px 10px 9px -3px rgba(0,0,0,0.27);
+}
+
+.navbar {
+	height: 70px;
+}
+
+/* General style for follow contents */
+
+.container-fluid {
+	padding: 0;
+	margin: 0 auto;
+}
+
+.jumbotron, .row {
+	margin: 0 auto;
+}
+
+.jumbotron {
+	height: 40vh;
+	-webkit-box-shadow: inset 0px -11px 9px -3px rgba(0,0,0,0.27);
+	-moz-box-shadow: inset 0px -11px 9px -3px rgba(0,0,0,0.27);
+	box-shadow: inset 0px -11px 9px -3px rgba(0,0,0,0.27);
+}
+
+/* title categori style */
+
+.category {
+	padding-top: 30px;
+}
+
+/* Dark background style */
+.dark {
+	background-color: #1f2530;
+	color: #fff !important;
+	min-height: 70vh;
+}
+
+/* Item list style */
+.category-item {
+	padding: 40px 0;
+	background-color: #1f2530;
+	border-left: 5px solid #BCDDFE;
+	border-radius: 2px;
+	margin: 15px 0;
+}
+
+.category-list:hover {
+	text-decoration: none;
+}
+
+.category-list p {
+	margin-top: 15px;
+	padding: 15px;
+	border-left: 5px solid #232b38;
+}
+
+.category-list p:hover {
+	background-color: #232b38;
+	border-radius: 2px;
+}
+
+/* Form style */
+.form {
+	padding: 50px 0;
+	margin: 0 auto;
+	max-width: 40%;
+	color: #fff;
+}
+
+form input, select {
+	box-shadow: none !important;
+	border-radius: 2px !important;
+	background-color: #1f2530 !important;
+}
+
+.btn {
+	background-color: #BCDDFE;
+	color: #1f2530;
+	height: 40px;
+	vertical-align: middle;
+	border-radius: 2px;
+}
+
+.btn:hover {
+	color: #1f2530;
+	background-color: #fff;
+}
+
+/* Game info page: description */
+.game-description {
+	max-width: 80%;
+}
+
+/* flash message style */
+.flash-msg {
+	background-color: #1f2530;
+	width: 97.3%;
+	margin-left: 1.2%;
+	border-left: 5px solid #BCDDFE;
+}
+
+.flash-text {
+	color: #BCDDFE;
+	padding: 20px;
+	list-style-type: none;
+}
+
+/* Login style */
+#log {
+	max-height: 100vh;
+	margin-top: 33vh;
+}
+
+#log div {
+	background-color: #1f2530;
+	width: 35%;
+	margin: 0 auto;
+	padding: 10px;
+}

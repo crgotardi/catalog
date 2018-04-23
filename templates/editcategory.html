@@ -1,0 +1,29 @@
+<!-- extender o arquivo main.html -->
+{% extends "main.html" %}
+
+<!-- importa o header -->
+{% include "header.html" %}
+
+<!-- criar um bloco de conteudo -->
+{% block content %}
+
+<div class="jumbotron">
+	<div class="h1"> Edit category {{category.name}} </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2> What you want to edit? </h2><br/>
+			<form method="POST" action="{{url_for('editCategory', category_id = category.id)}}">
+				<label> Category Name </label>
+				<input type="text"  name="editCategory" placeholder="{{ category.category }}"><br>
+				<label> Description </label>
+				<input type="text"  name="editDescription" placeholder="{{ category.description }}"><br>
+				<input type="submit" value="Edit" class="btn"> 
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock%}

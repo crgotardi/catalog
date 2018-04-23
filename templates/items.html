@@ -1,0 +1,73 @@
+<!-- extender o arquivo main.html -->
+{% extends "main.html" %}
+
+<!-- importa o header -->
+{% include "header.html" %}
+
+<!-- criar um bloco de conteudo -->
+{% block content %}
+
+<!-- cover images -->
+<div class="container-fluid ">
+	<div class="jumbotron center urlimg">
+	</div>
+</div>
+<style> 
+	.urlimg {
+		opacity: .7;
+		background-image: url({{category.img_url}}) !important;
+		background-size: cover !important;
+		background-size: 100%;
+	}
+</style>
+
+<div class="row">
+	<!-- categories side bar -->
+	<div class="col-md-3 category dark">
+		<h2 class="center">Categories</h2>
+		{% for i in catalog %}
+		<a href="{{url_for('items', category_id=i.id)}}" class="category-list"><p>{{ i.category }}</p></a>
+		{% endfor %}
+	</div>
+	<!-- Game list -->
+	<div class="col-md-9 align-middle center category">
+		<!-- flash messages here -->
+		<div class='flash'>
+			{% with messages = get_flashed_messages() %}
+      			{% if messages %}
+        			<ul class="flash-msg">
+        				{% for message in messages %}
+            				<li class="flash-text text-justify""> <strong> {{ message }} </strong> </li>
+        				{% endfor %}
+        			</ul>
+        		{% endif %}
+    		{% endwith %}
+    	</div>
+		<h2> {{category.category }} </h2>
+		<div class="row">
+			{% if items %}
+				{% for i in items %}
+					<div class="col-md-4">
+						<div class="category-item">
+							<a href="{{url_for('showItem', category_id=category.id, item_id=i.id)}}" width="200" height="250"/>
+								<h3>{{ i.name }}</h3><br>
+								{% if i.img_url %}
+									<img src="{{i.img_url}}" width="200" height="250"/>
+								{% else %}
+									<img src="https://www.warnerbros.com/sites/default/files/styles/juicebox_medium/public/unknown_posterlarge_1-796659102.jpg?itok=kKVT7EfX' * Detected change in '/vagrant/catalog/catalog.py" width="200" height="250"/>
+								{% endif %}
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+
+			{% else %}
+				<div class="col-md-12"> </div>
+			{% endif %}
+			<div class="col-md-4 center align-self-center align-middle">
+				<p><a href="{{url_for('newItem', category_id=category.id)}}"> Add new item </a></p>
+			</div>
+		</div>	
+	</div>	
+</div>
+{% endblock%}

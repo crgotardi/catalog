@@ -1,0 +1,23 @@
+<!-- Navbar -->
+<div class="container-fluid menu sticky-top">
+	<div class="row justify-content-md-center justify-content-around navbar navbar-expand-lg">
+		<!-- Show categories btn -->
+		<div class="col-md-6 align-self-center">
+			<a href="{{url_for('catalog')}}">
+				<center>Show All Categories</center>
+			</a>
+		</div>
+		<!-- Login btns -->
+		<div class="col-md-6 align-self-center center">
+			{% if 'username' not in session %}
+				<a href="{{url_for('login')}}">Click here to login </a>
+			{% else %}
+				 <a href="{{url_for('disconnect')}}"> Click here to logout </a>
+			{% endif %}	
+		</div>
+	</div>
+</div>
+
+
+
+

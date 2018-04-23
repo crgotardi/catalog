@@ -1,0 +1,48 @@
+<!-- extender o arquivo main.html -->
+{% extends "main.html" %}
+
+<!-- importa o header -->
+{% include "header.html" %}
+
+<!-- criar um bloco de conteudo -->
+{% block content %}
+
+<!-- Cover category image -->
+<div class="container-fluid ">
+	<div class="jumbotron center urlimg">
+	</div>
+</div>
+<style> 
+	.urlimg {
+		opacity: .7;
+		background-image: url({{category.img_url}}) !important;
+		background-size: cover !important;
+		background-size: 100%;
+	}
+</style>
+
+<!-- Item info -->
+<div class="row">
+	<div class="col-md-3 category dark">
+		<a href="{{url_for('catalog')}}"><h2 class="center">Category</h2></a>
+		<a href="{{url_for('items', category_id=category.id)}}" class="category-list"><p>{{ category.category }}</p></a><br>
+		<h2 class="center">Games</h2>
+		{% for i in items %}
+		<a href="{{url_for('showItem', category_id=category.id, item_id=i.id)}}" class="category-list"><p>{{i.name}}</p></a>
+		{% endfor %}
+	</div>
+	<div class="col-md-9 align-middle center category">
+		<div class="container game-description">
+			<img src="{{item.img_url}}"/><br><br>
+			<h2> {{item.name}} </h2><br>
+			{% if item.description %}
+				<h3> Description </h3>
+				<p class="text-justify"> {{item.description}} </p>
+			{% endif %}
+			<a class="btn" href="{{url_for('editItem', category_id=category.id, item_id=item.id)}}">Edit</a>
+			<a class="btn" href="{{url_for('deleteItem', category_id=category.id, item_id=item.id)}}">Delete</a>
+		</div>
+	</div>	
+</div>
+
+{% endblock%}
